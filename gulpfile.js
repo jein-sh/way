@@ -165,6 +165,13 @@ const build = gulp.series(
 
 exports.build = build;
 
+const ghPages = require('gh-pages');
+
+gulp.task('deploy', function() {
+  return gulp.src('./build/**/*')
+    .pipe(ghPages());
+});
+
 // Default
 
 
