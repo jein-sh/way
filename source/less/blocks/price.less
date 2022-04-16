@@ -1,0 +1,168 @@
+.price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 16px 50px;
+
+  @media (min-width: @tablet-width) {
+    align-items: stretch;
+    margin: 0 21px 111px;
+  }
+
+  @media (min-width: @desktop-width) {
+    .wrapper-desktop();
+
+    flex-direction: row;
+    margin-bottom: 140px;
+  }
+}
+
+.price__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+
+
+  @media (min-width: @desktop-width) {
+    order: 2;
+    width: 310px;
+    justify-self: end;
+    align-items: flex-start;
+    margin: 117px 0 0 94px;
+  }
+}
+
+.price__title {
+  position: relative;
+  margin: 0;
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 600;
+
+  @media (min-width: @tablet-width) {
+    font-size: 30px;
+    line-height: 45px;
+  }
+
+  @media (min-width: @desktop-width) {
+    font-size: 55px;
+    line-height: 80px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      width: 175px;
+      height: 3px;
+      background-color: @red;
+    }
+  }
+}
+
+.price__description {
+  margin: 20px 0 17px;
+
+  text-align: center;
+  line-height: 170%;
+  color: @gray;
+
+  @media (min-width: @tablet-width) {
+    margin-bottom: 32px;
+  }
+
+  @media (min-width: @desktop-width) {
+    margin: 53px 0 60px;
+    text-align: start;
+  }
+}
+
+.price__contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.price__contact-text {
+  margin: 0 0 10px;
+
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 34px;
+
+  @media (min-width: @desktop-width) {
+    margin-left: 46px;
+
+    font-size: 22px;
+    font-weight: 500;
+  }
+}
+
+.price__contact-phone {
+  @media (min-width: @desktop-width) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.price__phone {
+  font-size: 18px;
+  line-height: 32px;
+  color: @red;
+
+  @media (min-width: @desktop-width) {
+    margin-left: 20px;
+    color: @dark;
+    text-decoration: none;
+    font-size: 20px;
+  }
+
+  &:hover,
+  &:focus {
+    color: @orange;
+  }
+}
+
+.price__phone-icon {
+  display: none;
+
+  @media (min-width: @desktop-width) {
+    display: block;
+    stroke: @red;
+  }
+}
+
+.price__cards {
+  margin: 0;
+}
+
+.price__list {
+  .reset-list();
+
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: @tablet-width) {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.price__item {
+  margin-bottom: 30px;
+
+  &:last-child {
+    margin-bottom: 0;
+    margin-right: 0;
+  }
+
+  @media (min-width: @tablet-width) {
+    margin-bottom: 0;
+    margin-right: 50px;
+  }
+
+  @media (min-width: @desktop-width) {
+    margin-right: 30px;
+  }
+}

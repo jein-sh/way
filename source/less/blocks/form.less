@@ -1,0 +1,127 @@
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: @tablet-width) {
+    min-height: 455px;
+    padding: 0;
+
+    background-image: url("../img/form-tablet.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @media (min-width: @desktop-width) {
+    .wrapper-desktop();
+
+    justify-content: flex-end;
+
+    background-image: url("../img/form-desktop.jpg");
+    background-position: 0 0;
+    background-size: contain;
+  }
+
+  @media (min-resolution: 2dppx) {
+    @media (min-width: @tablet-width) {
+      height: 455px;
+      background-image: url("../img/form-tablet@2x.jpg");
+    }
+
+    @media (min-width: @desktop-width) {
+      background-image: url("../img/form-desktop@2x.jpg");
+    }
+  }
+}
+
+.form__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 16px;
+  margin: 0;
+
+  background-color: @light;
+
+  @media (min-width: @tablet-width) {
+    width: 558px;
+    height: 211px;
+    padding: 50px;
+
+    background-color: @white;
+
+    box-shadow: 0 4px 30px @gray-shadow;
+    border-radius: 5px;
+  }
+}
+
+.form__title {
+  padding: 0;
+
+  font-size: 25px;
+  line-height: 32px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.form__text {
+  text-align: center;
+  margin: 20px 0;
+  line-height: 24px;
+
+  @media (min-width: @tablet-width) {
+    margin: 10px 0 23px;
+  }
+}
+
+.form__contact {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  border: none;
+}
+
+.form__inputs {
+  @media (min-width: @tablet-width) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.form__input-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: @tablet-width) {
+    width: 269px;
+    margin-right: 20px;
+  }
+}
+
+.form__input {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px;
+  padding: 15px;
+
+  box-sizing: border-box;
+
+  &:focus {
+    border: solid 1px @red;
+    outline: none;
+  }
+}
+
+.form__error {
+  display: none;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  line-height: 15px;
+  color: @red;
+}

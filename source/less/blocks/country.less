@@ -1,0 +1,144 @@
+.country {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: @desktop-width) {
+    .wrapper-desktop();
+    flex-direction: row;
+    margin: 65px 0 234px;
+  }
+}
+
+.country__about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 24px 16px 50px;
+
+  @media (min-width: @tablet-width) {
+    margin: 30px 21px;
+  }
+
+  @media (min-width: @desktop-width) {
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 370px;
+    margin: 0 100px 0 0;
+  }
+}
+
+.country__title {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  margin-bottom: 20px;
+
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 600;
+
+  @media (min-width: @tablet-width) {
+    font-size: 30px;
+    line-height: 45px;
+  }
+
+  @media (min-width: @desktop-width) {
+    margin: 15px 0 53px;
+    font-size: 55px;
+    line-height: 80px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      width: 175px;
+      height: 3px;
+      background-color: @red;
+    }
+  }
+}
+
+.country__description {
+  margin: 0;
+  margin-bottom: 19px;
+
+  text-align: center;
+  letter-spacing: -0.47px;
+  color: @gray;
+
+  @media (min-width: @desktop-width) {
+    margin-bottom: 50px;
+
+    text-align: start;
+  }
+}
+
+.country__reviews {
+  display: flex;
+  justify-content: center;
+  height: 415px;
+  margin: 0 0 111px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &--greece {
+    background-image: url("../img/greece-mobile.jpg");
+  }
+
+  &--albaniа {
+    background-image: url("../img/albaniа-mobile.jpg");
+  }
+
+  &--macedonia {
+    background-image: url("../img/macedonia-mobile.jpg");
+  }
+
+  &--montenegro {
+    background-image: url("../img/montenegro-mobile.jpg");
+  }
+
+  &--croatia {
+    background-image: url("../img/croatia-mobile.jpg");
+  }
+
+  @media (min-resolution: 2dppx) {
+    height: 415px;
+
+    &--greece {
+      background-image: url("../img/greece-mobile@2x.jpg");
+    }
+
+    &--albaniа {
+      background-image: url("../img/albaniа-mobile@2x.jpg");
+    }
+
+    &--macedonia {
+      background-image: url("../img/macedonia-mobile@2x.jpg");
+    }
+
+    &--montenegro {
+      background-image: url("../img/montenegro-mobile@2x.jpg");
+    }
+
+    &--croatia {
+      background-image: url("../img/croatia-mobile@2x.jpg");
+    }
+
+  }
+
+  @media (min-width: @desktop-width) {
+    flex: 1;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    min-height: 596px;
+
+    background-size: contain;
+    background-position: 0 0;
+  }
+}

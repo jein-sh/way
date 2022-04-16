@@ -1,0 +1,68 @@
+.button {
+  position: relative;
+  display: block;
+  width: 288px;
+  margin: 0;
+  padding: 19px 40px;
+
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-align: center;
+
+  color: @white;
+  background-color: @red;
+
+  text-transform: uppercase;
+  text-decoration: none;
+  text-shadow: none;
+  border: none;
+
+  &:active,
+  &:hover {
+    background-color: @orange;
+  }
+
+  @media (min-width: @tablet-width) {
+    width: 250px;
+  }
+
+  @media (min-width: @desktop-width) {
+    padding: 30px;
+
+    font-size: 12px;
+    line-height: 15px;
+
+    &--form {
+      width: 176px;
+      padding: 18px 40px;
+    }
+  }
+
+  &--link {
+    box-sizing: border-box;
+    text-align: start;
+
+    @media (min-width: @desktop-width) {
+      width: 340px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 18px;
+      right: 40px;
+      width: 14px;
+      height: 14px;
+      background-image: url("../img/arrow-down.svg");
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+
+      @media (min-width: @desktop-width) {
+        top: 30px;
+        right: 30px;
+      }
+    }
+  }
+}

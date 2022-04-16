@@ -1,0 +1,17 @@
+.page-footer {
+  display: grid;
+  margin: 59px 16px 26px;
+
+  @media (min-width: @tablet-width) {
+    grid-template-columns: 1fr 330px;
+    margin: 80px 21px 54px;
+  }
+
+  @media (min-width: @desktop-width) {
+    .wrapper-desktop();
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    padding: 160px 0 74px;
+  }
+}
