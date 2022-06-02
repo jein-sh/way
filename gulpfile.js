@@ -53,6 +53,13 @@ const scripts = () => {
 
 exports.scripts = scripts;
 
+const ghPages = require('gh-pages');
+
+gulp.task('deploy', function() {
+  return gulp.src('./build/**/*')
+    .pipe(ghPages());
+});
+
 // Images
 
 const optimizeImages = () => {
@@ -101,7 +108,7 @@ const copy = (done) => {
     "source/*.ico",
     "source/img/**/*.svg",
     "!source/img/icons/*.svg",
-    // "source/manifest.webmanifest",
+    "source/manifest.webmanifest",
    ], {
     base: "source"
   })
@@ -164,13 +171,6 @@ const build = gulp.series(
 );
 
 exports.build = build;
-
-const ghPages = require('gh-pages');
-
-gulp.task('deploy', function() {
-  return gulp.src('./build/**/*')
-    .pipe(ghPages());
-});
 
 // Default
 
