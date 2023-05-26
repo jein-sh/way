@@ -16,8 +16,8 @@ const sync = require("browser-sync").create();
 
 // Styles
 
-const styles = () => {
-  return gulp.src("source/less/style.less")
+const styles = (done) => {
+  gulp.src("source/less/style.less")
     .pipe(plumber())
     .pipe(sourcemap.init())
     .pipe(less())
@@ -29,66 +29,80 @@ const styles = () => {
     .pipe(sourcemap.write("."))
     .pipe(gulp.dest("build/css"))
     .pipe(sync.stream());
+  done();
 }
 
 exports.styles = styles;
 
 // HTML
 
-const html = () => {
-  return gulp.src("source/*.html")
+const html = (done) => {
+  gulp.src("source/*.html")
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("build"));
+  done();
 }
 
 // Scripts
 
-const scripts = () => {
-  return gulp.src("source/js/script.js")
+const scripts = (done) => {
+  gulp.src("source/js/script.js")
     .pipe(terser())
     .pipe(rename("script.min.js"))
     .pipe(gulp.dest("build/js"))
     .pipe(sync.stream());
+  done();
 }
 
 exports.scripts = scripts;
 
+const ghPages = require('gh-pages');
+
+gulp.task('deploy', function() {
+  return gulp.src('./build/**/*')
+    .pipe(ghPages());
+});
+
 // Images
 
-const optimizeImages = () => {
-  return gulp.src("source/img/**/*.{png,jpg,svg}")
+const optimizeImages = (done) => {
+  gulp.src("source/img/**/*.{png,jpg,svg}")
     .pipe(squoosh())
-    .pipe(gulp.dest("build/img"))
+    .pipe(gulp.dest("build/img"));
+  done();
 }
 
 exports.images = optimizeImages;
 
-const copyImages = () => {
-  return gulp.src("source/img/**/*.{png,jpg,svg}")
-    .pipe(gulp.dest("build/img"))
+const copyImages = (done) => {
+  gulp.src("source/img/**/*.{png,jpg,svg}")
+    .pipe(gulp.dest("build/img"));
+  done();
 }
 
 exports.images = copyImages;
 
 // WebP
 
-const createWebp = () => {
-  return gulp.src("source/img/**/*.{jpg,png}")
+const createWebp = (done) => {
+  gulp.src("source/img/**/*.{jpg,png}")
     .pipe(webp({quality: 90}))
-    .pipe(gulp.dest("build/img"))
+    .pipe(gulp.dest("build/img"));
+  done();
 }
 
 exports.createWebp = createWebp;
 
 // Sprite
 
-const sprite = () => {
-  return gulp.src("source/img/*.svg")
+const sprite = (done) => {
+  gulp.src("source/img/*.svg")
     .pipe(svgstore({
       inlineSvg: true
     }))
     .pipe(rename("sprite.svg"))
     .pipe(gulp.dest("build/img"));
+  done();
 }
 
 exports.sprite = sprite;
@@ -99,9 +113,9 @@ const copy = (done) => {
   gulp.src([
     "source/fonts/*.{woff2,woff}",
     "source/*.ico",
-    "source/img/**/*.svg",
+    "source/img/**/*.{svg,jpg,png}",
     "!source/img/icons/*.svg",
-    // "source/manifest.webmanifest",
+    "source/manifest.webmanifest",
    ], {
     base: "source"
   })
@@ -164,13 +178,6 @@ const build = gulp.series(
 );
 
 exports.build = build;
-
-const ghPages = require('gh-pages');
-
-gulp.task('deploy', function() {
-  return gulp.src('./build/**/*')
-    .pipe(ghPages());
-});
 
 // Default
 

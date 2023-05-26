@@ -2,7 +2,7 @@ img {
     max-width: 100%;
     height: auto;
 }
-  
+
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -15,7 +15,7 @@ img {
     clip: rect(0 0 0 0);
     overflow: hidden;
 }
- 
+
 .button {
     display: block;
     width: 100%;
@@ -36,13 +36,13 @@ img {
 .page-header__content {
     display: flex;
   }
-  
+
   .page-header__logo {
     height: 50px;
-  
+
     text-align: center;
   }
-  
+
   .page-header__logo img {
     width: 44px;
     height: 17px;
@@ -54,7 +54,7 @@ img {
     font-family: "PT Sans Narrow", "Arial", sans-serif;
     line-height: 28px;
   }
-  
+
   .page__body {
     display: grid;
     min-width: 320px;
@@ -71,7 +71,7 @@ img {
   .wrapper {
     margin: 0 16px;
   }
-  
+
   .promo__title {
     display: flex;
     justify-content: center;
@@ -83,8 +83,8 @@ img {
     line-height: 36px;
     font-weight: 600;
     background-color: #669EC0;
-    background-image: url(../../img/promo.jpg);
-  
+    background-image: url("../img/promo.jpg");
+
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
